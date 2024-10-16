@@ -6,7 +6,7 @@ if [[ $# -ne 2 ]]; then
 fi
 
 column=$1
-file=$2
+file=${2:-/dev/stdin}
 
     tail -n +2 "$file" | cut -d ',' -f "$column"|{	 sum=0						  count=0
 	while read n; do
