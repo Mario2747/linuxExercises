@@ -6,14 +6,16 @@ if [ $# -ne 2 ]; then
   exit 1
 fi
 
+dir=$1 # Assign the first argument to the variable dir
+n=$2 # Assign the second argument to the variable n
+
+echo "Directory passed: $dir"
+
 # check if the <dir> inputted exists
 if [ ! -d "$dir" ]; then
   echo "Error: Directory $dir does not exist." 1>&2
   exit 1
 fi
-
-dir=$1 # Assign the first argument to the variable dir
-n=$2 # Assign the second argument to the variable n
 
 # find and delete
 find "$dir" -type f -size +"${n}"c -exec rm {} \;
